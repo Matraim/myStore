@@ -5,6 +5,7 @@ import { ShoppingCart } from '../components/ShoppingCart';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 
 import HomeIcon from '@mui/icons-material/Home';
+import AccountMenu from './AccountMenu';
 
 const Navbar = () => {
   const { openCart, cartQuantity, isOpen } = useShoppingCart();
@@ -48,28 +49,32 @@ const Navbar = () => {
             height: '3rem',
             position: 'relative',
             background: 'none',
-            borderRadius: '2rem',
+            border: 'none',
           }}
         >
           <LocalGroceryStoreIcon fontSize="medium" style={{ color: 'black' }} />
           <div
-            className="bg-black d-flex justify-content-center align-items-center"
+            className="d-flex justify-content-center align-items-center"
             style={{
+              width: '1rem',
+              height: '1rem',
               color: 'white',
-              width: '1.5rem',
-              height: '1.5rem',
               position: 'absolute',
-              bottom: '0',
+              bottom: '5px',
+              fontSize: '0.7rem',
               right: '0',
-              left: '1.5rem',
-              transform: 'translate(35%, 20%)',
-              borderRadius: '2rem',
+              left: '1.6rem',
+              transform: 'translate(25%, 20%)',
+              borderRadius: '1rem',
+              background: '#337aba',
             }}
           >
             {cartQuantity}
           </div>
         </Button>
+        <AccountMenu />
       </Container>
+
       {isOpen && <ShoppingCart isOpen={isOpen} />}
     </NavbarBs>
   );

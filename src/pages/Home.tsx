@@ -1,8 +1,22 @@
+import TitlebarBelowMasonryImageList from '../components/TitlebarBelowMasonryImageList';
+
 const Home = () => {
   return (
     <div>
       <h1 style={{ textAlign: 'center' }}>Home Page</h1>
-      <p>Welcome to our website! you can order apple products</p>
+      <p style={{ textAlign: 'center' }}>
+        Welcome to our website! you can order apple products
+      </p>
+
+      <div
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          display: 'flex',
+        }}
+      >
+        <TitlebarBelowMasonryImageList />
+      </div>
     </div>
   );
 };
