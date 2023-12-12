@@ -15,7 +15,6 @@ const Accessories = () => {
       </p>
 
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-        {/* AirPods Card */}
         <Card style={{ maxWidth: 300 }}>
           <img src={airpodsImage} alt="AirPods" style={{ maxWidth: '100%' }} />
           <CardContent>
@@ -32,7 +31,7 @@ const Accessories = () => {
           <img src={macImage} alt="Mac" style={{ maxWidth: '100%' }} />
           <CardContent>
             <Typography variant="h5" component="div">
-              Mac
+              Mac Description
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Description for Mac.
