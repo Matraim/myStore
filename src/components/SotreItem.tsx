@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { formatCurrency } from '../utilites/formatCurrency.ts';
 import { useShoppingCart } from '../context/ShoppingCartContext';
@@ -5,14 +6,26 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import RemoveDoneIcon from '@mui/icons-material/RemoveDone';
 
-type StoreItemProps = {
+export interface StoreItemType {
   id: number;
   name: string;
   price: number;
   imgUrl: string;
-};
+  description: string;
+}
 
-export default function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
+interface StoreItemProps extends StoreItemType {
+  onItemClick: (item: StoreItemType) => void;
+}
+
+const StoreItem: React.FC<StoreItemProps> = ({
+  id,
+  name,
+  price,
+  imgUrl,
+  description,
+  onItemClick,
+}) => {
   const {
     getItemQuantity,
     increaseCartQuantity,
@@ -39,7 +52,10 @@ export default function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
           {quantity === 0 ? (
             <Button
               variant="primary"
-              onClick={() => increaseCartQuantity(id)}
+              onClick={() => {
+                onItemClick({ id, description, imgUrl, name, price });
+                increaseCartQuantity(id);
+              }}
               style={{
                 justifyContent: 'center',
                 display: 'flex',
@@ -83,4 +99,6 @@ export default function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
       </Card.Body>
     </Card>
   );
-}
+};
+
+export default StoreItem;

@@ -11,6 +11,8 @@ import IPhone from './pages/IPhone';
 import Whatch from './pages/Whatch';
 import AirPods from './pages/AirPods';
 import Accessories from './pages/Accessories';
+import LoginForm from './layout/LoginForm';
+import SignUp from './layout/SignUp';
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
       <Navbar />
       <Container className="mb-4">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/store" element={<Store />} />
           <Route path="/mac" element={<Mac />} />
           <Route path="/IPad" element={<IPad />} />
@@ -27,6 +29,8 @@ function App() {
           <Route path="/AirPods" element={<AirPods />} />
           <Route path="/Accessories" element={<Accessories />} />
           <Route path="/about" element={<About />} />
+          <Route path="/" element={<LoginForm />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </Container>
     </ShoppingCartProvider>
