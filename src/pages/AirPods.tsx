@@ -12,7 +12,13 @@ const AirPods = () => {
       <Row md={2} sm={1} lg={3} className="g-3">
         {storeItemsAirPods.map((item) => (
           <Col key={item.id}>
-            <StoreItem {...item} />
+            <StoreItem
+              onItemClick={function (): void {
+                throw new Error('Function not implemented.');
+              }}
+              description={''}
+              {...item}
+            />
           </Col>
         ))}
       </Row>
