@@ -19,7 +19,7 @@ type ShoppingCartContext = {
   removeFromCart: (id: number) => void;
   cartQuantity: number;
   cartItems: CartItem[];
-  isOpen: boolean; 
+  isOpen: boolean;
 };
 
 const ShoppingCartContext = createContext<ShoppingCartContext | undefined>(
@@ -42,9 +42,6 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     'shopping-cart',
     []
   );
-
-  
-
 
   const [isOpen, setIsOpen] = useState(false);
 
