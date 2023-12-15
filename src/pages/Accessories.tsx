@@ -70,7 +70,6 @@ const Accessories = () => {
         </Card>
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-        
         <Card style={{ maxWidth: 300 }}>
           <img src={ipadImage} alt="iPad" style={{ maxWidth: '100%' }} />
           <CardContent>
