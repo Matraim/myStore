@@ -22,7 +22,7 @@ function App() {
   const handleLogin = (values: { email: string; password: string }) => {
     console.log('Login values:', values);
     setAuthenticated(true);
-    navigate('/');
+    navigate('/home');
   };
 
   const handleLogout = () => {
@@ -36,7 +36,7 @@ function App() {
         <Routes>
           {isAuthenticated ? (
             <>
-              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
               <Route path="/store" element={<Store />} />
               <Route path="/mac" element={<Mac />} />
               <Route path="/IPad" element={<IPad />} />
