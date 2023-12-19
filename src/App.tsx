@@ -22,7 +22,7 @@ function App() {
   const handleLogin = (values: { email: string; password: string }) => {
     console.log('Login values:', values);
     setAuthenticated(true);
-    navigate('/');
+    navigate('/home');
   };
 
   const handleLogout = () => {
@@ -34,21 +34,18 @@ function App() {
       <Navbar />
       <Container className="mb-4">
         <Routes>
-          {isAuthenticated ? (
-            <>
-              <Route path="/" element={<Home />} />
-              <Route path="/store" element={<Store />} />
-              <Route path="/mac" element={<Mac />} />
-              <Route path="/IPad" element={<IPad />} />
-              <Route path="/IPhone" element={<IPhone />} />
-              <Route path="/Whatch" element={<Whatch />} />
-              <Route path="/AirPods" element={<AirPods />} />
-              <Route path="/Accessories" element={<Accessories />} />
-              <Route path="/about" element={<About />} />
-            </>
-          ) : (
+          <>
+            <Route path="/home" element={<Home />} />
+            <Route path="/store" element={<Store />} />
+            <Route path="/mac" element={<Mac />} />
+            <Route path="/IPad" element={<IPad />} />
+            <Route path="/IPhone" element={<IPhone />} />
+            <Route path="/Whatch" element={<Whatch />} />
+            <Route path="/AirPods" element={<AirPods />} />
+            <Route path="/Accessories" element={<Accessories />} />
+            <Route path="/about" element={<About />} />
             <Route path="/" element={<LoginForm onSubmit={handleLogin} />} />
-          )}
+          </>
         </Routes>
         {isAuthenticated && (
           <div>
