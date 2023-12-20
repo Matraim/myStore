@@ -29,7 +29,7 @@ const StyledSignUpForm = styled(Form)`
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 800px;
+  max-width: 500px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;
@@ -110,28 +110,28 @@ const LoginForm: React.FC<{ onSubmit: (values: SignUpFormValues) => void }> = ({
       onSubmit={handleSubmit}
     >
       <StyledSignUpForm>
-        <div>
+        <>
           <StyledLabel htmlFor="email">Email:</StyledLabel>
           <StyledInput type="text" id="email" name="email" />
           <ErrorMessage name="email" component="div" />
-        </div>
+        </>
 
-        <div>
+        <>
           <StyledLabel htmlFor="password">Password:</StyledLabel>
           <StyledInput type="password" id="password" name="password" />
           <ErrorMessage name="password" component="div" />
-        </div>
-        <div>
+        </>
+        <>
           <StyledLabel htmlFor="city">City:</StyledLabel>
           <StyledInput type="text" id="city" name="city" />
           <ErrorMessage name="city" component="div" />
-        </div>
+        </>
 
-        <div>
+        <>
           <StyledButton type="submit" onClick={() => navigate('/home')}>
             Sign Up
           </StyledButton>
-        </div>
+        </>
 
         <AuthForm>
           <SignUpLink>
