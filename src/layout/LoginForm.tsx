@@ -74,7 +74,7 @@ const AuthForm = styled.div`
 const SignUpLink = styled.p`
   margin-top: 12px;
   font-size: 14px;
-  color: #333;
+  color: #0c79d2;
 
   span {
     color: #4267b2;
