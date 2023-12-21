@@ -2,12 +2,12 @@ import { Col, Row } from 'react-bootstrap';
 import ItemsIpad from '../data/itemsIpad.json';
 import StoreItem from '../components/SotreItem';
 
-const IPad = () => {
+const iPad = () => {
   return (
     <>
-      <h1 style={{ textAlign: 'center' }}>iPad</h1>
-      <p style={{ textAlign: 'center' }}>
-        We are a fantastic company doing amazing Whatch.
+      <h1 className="text-center">iPad</h1>
+      <p className="text-center">
+        We are a fantastic company doing amazing things.
       </p>
       <Row md={2} sm={1} lg={3} className="g-3">
         {ItemsIpad.map((item) => (
@@ -26,4 +26,4 @@ const IPad = () => {
   );
 };
 
-export default IPad;
+export default iPad;
