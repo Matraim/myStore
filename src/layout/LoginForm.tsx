@@ -10,6 +10,7 @@ interface SignUpFormValues {
   confirmPassword: string;
   city: string;
   gender: string;
+  agreeTerms: boolean;
 }
 
 const SignUpSchema = yup.object({
@@ -21,45 +22,55 @@ const SignUpSchema = yup.object({
     .required('Required'),
   city: yup.string().required('Required'),
   gender: yup.string().required('Required'),
+  agreeTerms: yup.boolean().oneOf([true], 'Must accept terms and conditions'),
 });
 
 const StyledSignUpForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 800px;
+  max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 `;
 
 const StyledLabel = styled.label`
-  display: flex;
   margin-bottom: 8px;
   font-weight: bold;
 `;
 
 const StyledInput = styled(Field)`
   width: 100%;
-  padding: 8px;
-  margin-bottom: 12px;
+  padding: 10px;
+  margin-bottom: 16px;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 4px;
+  outline: none;
+`;
+
+const StyledCheckboxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+`;
+
+const StyledCheckboxLabel = styled.label`
+  margin-left: 8px;
 `;
 
 const StyledButton = styled.button`
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background-color: #4267b2;
   color: #fff;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
-  margin-top: 12px;
+  transition: background-color 0.3s;
 
   &:hover {
     background-color: #405d9b;
@@ -74,7 +85,7 @@ const AuthForm = styled.div`
 const SignUpLink = styled.p`
   margin-top: 12px;
   font-size: 14px;
-  color: #0c79d2;
+  color: #333;
 
   span {
     color: #4267b2;
@@ -93,7 +104,7 @@ const LoginForm: React.FC<{ onSubmit: (values: SignUpFormValues) => void }> = ({
   ) => {
     console.log('Signing up with:', values);
     onSubmit(values);
-    navigate('/store');
+    navigate('/home');
     actions.setSubmitting(false);
   };
 
@@ -105,33 +116,44 @@ const LoginForm: React.FC<{ onSubmit: (values: SignUpFormValues) => void }> = ({
         confirmPassword: '',
         city: '',
         gender: '',
+        agreeTerms: false,
       }}
       validationSchema={SignUpSchema}
       onSubmit={handleSubmit}
     >
       <StyledSignUpForm>
-        <div>
-          <StyledLabel htmlFor="email">Email:</StyledLabel>
-          <StyledInput type="text" id="email" name="email" />
-          <ErrorMessage name="email" component="div" />
-        </div>
+        <StyledLabel htmlFor="email">Email:</StyledLabel>
+        <StyledInput type="text" id="email" name="email" />
+        <ErrorMessage name="email" component="div" />
 
-        <div>
-          <StyledLabel htmlFor="password">Password:</StyledLabel>
-          <StyledInput type="password" id="password" name="password" />
-          <ErrorMessage name="password" component="div" />
-        </div>
-        <div>
-          <StyledLabel htmlFor="city">City:</StyledLabel>
-          <StyledInput type="text" id="city" name="city" />
-          <ErrorMessage name="city" component="div" />
-        </div>
+        <StyledLabel htmlFor="password">Password:</StyledLabel>
+        <StyledInput type="password" id="password" name="password" />
+        <ErrorMessage name="password" component="div" />
 
-        <div>
-          <StyledButton type="submit" onClick={() => navigate('/home')}>
-            Sign Up
-          </StyledButton>
-        </div>
+        <StyledLabel htmlFor="confirmPassword">Confirm Password:</StyledLabel>
+        <StyledInput
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+        />
+        <ErrorMessage name="confirmPassword" component="div" />
+
+        <StyledLabel htmlFor="city">City:</StyledLabel>
+        <StyledInput type="text" id="city" name="city" />
+        <ErrorMessage name="city" component="div" />
+
+        <StyledLabel htmlFor="gender">Gender:</StyledLabel>
+        <StyledInput type="text" id="gender" name="gender" />
+        <ErrorMessage name="gender" component="div" />
+
+        <StyledCheckboxContainer>
+          <Field type="checkbox" id="agreeTerms" name="agreeTerms" />
+          <StyledCheckboxLabel htmlFor="agreeTerms">
+            I agree to the terms and conditions
+          </StyledCheckboxLabel>
+        </StyledCheckboxContainer>
+
+        <StyledButton type="submit">Sign Up</StyledButton>
 
         <AuthForm>
           <SignUpLink>
