@@ -29,7 +29,7 @@ const StyledSignUpForm = styled(Form)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 400px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;
@@ -108,6 +108,10 @@ const LoginForm: React.FC<{ onSubmit: (values: SignUpFormValues) => void }> = ({
     actions.setSubmitting(false);
   };
 
+  const handelSignup = () => {
+    navigate('/home');
+  };
+
   return (
     <Formik
       initialValues={{
@@ -130,14 +134,6 @@ const LoginForm: React.FC<{ onSubmit: (values: SignUpFormValues) => void }> = ({
         <StyledInput type="password" id="password" name="password" />
         <ErrorMessage name="password" component="div" />
 
-        <StyledLabel htmlFor="confirmPassword">Confirm Password:</StyledLabel>
-        <StyledInput
-          type="password"
-          id="confirmPassword"
-          name="confirmPassword"
-        />
-        <ErrorMessage name="confirmPassword" component="div" />
-
         <StyledLabel htmlFor="city">City:</StyledLabel>
         <StyledInput type="text" id="city" name="city" />
         <ErrorMessage name="city" component="div" />
@@ -153,7 +149,9 @@ const LoginForm: React.FC<{ onSubmit: (values: SignUpFormValues) => void }> = ({
           </StyledCheckboxLabel>
         </StyledCheckboxContainer>
 
-        <StyledButton type="submit">Sign Up</StyledButton>
+        <StyledButton type="submit" onClick={handelSignup}>
+          Sign Up
+        </StyledButton>
 
         <AuthForm>
           <SignUpLink>
