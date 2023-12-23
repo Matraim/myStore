@@ -14,6 +14,9 @@ import Accessories from './pages/Accessories';
 import LoginForm from './layout/LoginForm';
 import { useState } from 'react';
 import ReplyAllIcon from '@mui/icons-material/ReplyAll';
+import Catalog from './components/Catalog';
+import styled from 'styled-components';
+import CatalogTwo from './components/Catalog2';
 
 function App() {
   const navigate = useNavigate();
@@ -33,6 +36,11 @@ function App() {
     <ShoppingCartProvider>
       <Navbar />
       <Container className="mb-4">
+        <StyleCatalog>
+          <Catalog />
+          <CatalogTwo />
+        </StyleCatalog>
+
         <Routes>
           <>
             <Route path="/home" element={<Home />} />
@@ -64,3 +72,13 @@ function App() {
 }
 
 export default App;
+
+const StyleCatalog = styled.div`
+  display: flex;
+  color: black;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: fixed;
+  z-index: 999;
+  gap: 3rem;
+`;

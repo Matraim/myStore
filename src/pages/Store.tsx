@@ -1,8 +1,8 @@
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import StoreImg1 from '/public/mac/Apple-MacBook-Pro-with-Retina-Display-2020-Space-Gray.png';
-import StoreImg2 from '/public/mac/Apple-MacBook-Pro-with-Retina-Display-2020-Space-Gray.png';
+import StoreImg1 from '/public/whatch/ultra-2-blue-alpine-loop.webp';
+import StoreImg2 from '/public/Iphone/3.webp';
 import StoreVideo from '../assets/video/bannerVideo.mp4';
 
 const Store = () => {
@@ -20,6 +20,30 @@ const Store = () => {
       <p>We are a fantastic company doing amazing things.</p>
 
       <Slider {...sliderSettings}>
+        <div>
+          <img
+            src={StoreImg1}
+            alt="Description of the image"
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              display: 'block',
+              margin: 'auto',
+            }}
+          />
+        </div>
+        <div>
+          <img
+            src={StoreImg2}
+            alt="Description of the image"
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              display: 'block',
+              margin: 'auto',
+            }}
+          />
+        </div>
         <div>
           <img
             src={StoreImg1}
