@@ -17,6 +17,7 @@ import ReplyAllIcon from '@mui/icons-material/ReplyAll';
 import Catalog from './components/Catalog';
 import styled from 'styled-components';
 import CatalogTwo from './components/Catalog2';
+import Footer from './pages/Footer';
 
 function App() {
   const navigate = useNavigate();
@@ -67,6 +68,9 @@ function App() {
           </div>
         )}
       </Container>
+      <>
+        <Footer creator={''} />
+      </>
     </ShoppingCartProvider>
   );
 }
