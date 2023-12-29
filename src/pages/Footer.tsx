@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import GitHubIcon from '@mui/icons-material/GitHub';
 
 interface FooterProps {
   creator: string;
@@ -87,14 +86,14 @@ const Footer: React.FC<FooterProps> = ({ creator }) => {
       </div>
       <div>
         <h3>About</h3>
-        <p>
-          Created by Matraim<a href="#">{creator}</a>
-          <ul>
-            <Link to="https://github.com/Matraim">
-              <GitHubIcon fontSize="medium" /> My GitHub
-            </Link>
-          </ul>
-        </p>
+        <ul>
+          {' '}
+          <Link to="./About">About Team {creator}</Link>
+        </ul>
+
+        <ul>
+          <Link to="https://github.com/Matraim">My GitHub</Link>
+        </ul>
       </div>
     </StyledFooter>
   );
