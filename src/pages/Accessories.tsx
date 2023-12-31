@@ -1,10 +1,10 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import airpodsImage from '/public/AirPods/AirPods-1.webp';
-import macImage from '/public/mac/https___s3-sa-east-1.amazonaws.com_centryproduction_belanit-inventario_products_64cd1c57f117861098cacfac_image_64cd1c57f117861098cacfac_original_1605031549_160482620230307-8222-19fi20a20230804-4248-r9s2fh.avif';
-import iphoneImage from '/public/Iphone/2.jpeg';
-import ipadImage from '/public/ipad/ipad-mmini-select-wifi-purple-202109_fmt_whh-1200x1200.webp';
+import airpodsImage from '/src/assets/images/AirPods/AirPods-1.webp';
+import macImage from '/src/assets/images/mac/https___s3-sa-east-1.amazonaws.com_centryproduction_belanit-inventario_products_64cd1c57f117861098cacfac_image_64cd1c57f117861098cacfac_original_1605031549_160482620230307-8222-19fi20a20230804-4248-r9s2fh.avif';
+import iphoneImage from '/src/assets/images/Iphone/2.jpeg';
+import ipadImage from '/src/assets/images/ipad/ipad-mmini-select-wifi-purple-202109_fmt_whh-1200x1200.webp';
 
 const Accessories = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Col, Row, Modal, Button } from 'react-bootstrap';
 import StoreItem, { StoreItemType } from '../components/SotreItem';
-import storeItemsWatch from '../data/storeItemsWhatch.json';
+import { mac } from '../data/itemsMac';
 
 interface WatchProps {}
 
@@ -25,7 +25,7 @@ const Watch: React.FC<WatchProps> = () => {
         We are a fantastic company doing amazing Watch.
       </p>
       <Row md={2} sm={1} lg={3} className="g-3">
-        {storeItemsWatch.map((item) => (
+        {mac.map((item) => (
           <Col key={item.id}>
             <StoreItem
               id={item.id}

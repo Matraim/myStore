@@ -1,5 +1,5 @@
 import { Col, Row } from 'react-bootstrap';
-import itemsIphone from '../data/itemsIphone.json';
+import { phone } from '../data/itemsIphone';
 import StoreItem from '../components/SotreItem';
 
 const IPhone = () => {
@@ -10,7 +10,7 @@ const IPhone = () => {
         We are a fantastic company doing amazing Whatch.
       </p>
       <Row md={2} sm={1} lg={3} className="g-3">
-        {itemsIphone.map((item) => (
+        {phone.map((item) => (
           <Col key={item.id}>
             <StoreItem
               onItemClick={function (): void {

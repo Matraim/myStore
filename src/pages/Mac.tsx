@@ -1,6 +1,6 @@
 import { Col, Row } from 'react-bootstrap';
-import storeItemsMac from '../data/itemsMac.json';
 import StoreItem from '../components/SotreItem';
+import { MacBook } from '../data/storeItemsWhatch';
 
 const Mac = () => {
   return (
@@ -10,7 +10,7 @@ const Mac = () => {
         We are a fantastic company doing amazing Whatch.
       </p>
       <Row md={2} sm={1} lg={3} className="g-3">
-        {storeItemsMac.map((item) => (
+        {MacBook.map((item) => (
           <Col key={item.id}>
             <StoreItem
               onItemClick={function (): void {
