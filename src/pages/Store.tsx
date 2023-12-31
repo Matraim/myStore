@@ -1,9 +1,9 @@
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import StoreImg1 from '/src/assets/images/whatch/ultra-2-blue-alpine-loop.webp';
-import StoreImg2 from '/src/assets/images/Iphone/3.webp';
-import StoreVideo from '../assets/video/bannerVideo.mp4';
+import StoreImg1 from '../assets/images/imgAppleWhatch/watchOS8-Design-Templates-small_2x.png';
+import StoreImg2 from '../assets/images/imgAppleWhatch/watchOS8-Design-Templates-small_2x.png';
+import StoreVideo from '../assets/images/imgAppleWhatch/watchOS8-Design-Templates-small_2x.png';
 
 const Store = () => {
   const sliderSettings = {

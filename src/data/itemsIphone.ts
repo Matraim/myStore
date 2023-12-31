@@ -1,4 +1,5 @@
-import iphone14 from '/src/assets/images/Iphone/product_3611_0_image-1000x1000.jpg';
+import iphone14 from '../assets/images/imgAppleWhatch/watchOS10-Design-Templates_2x.png';
+import iphoneair23 from '../assets/images/imgAppleWhatch/watchOS10-Design-Templates_2x.png';
 
 export const phone = [
   {
@@ -11,7 +12,7 @@ export const phone = [
     id: 14,
     name: 'Iphone Pro M2',
     price: 1450,
-    imgUrl: '/public/Iphone/1.jpeg',
+    imgUrl: iphoneair23,
   },
   {
     id: 15,
