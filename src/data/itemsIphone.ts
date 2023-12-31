@@ -1,59 +1,59 @@
-import iphone14 from '../assets/images/imgAppleWhatch/watchOS10-Design-Templates_2x.png';
-import iphoneair23 from '../assets/images/imgAppleWhatch/watchOS10-Design-Templates_2x.png';
+import iphone11 from '../assets/images/imgIphone/11-white_6A7orer.webp';
+import iphone12 from '../assets/images/imgIphone/12-Black_Rfid3OW.webp';
+import iphone13 from '../assets/images/imgIphone/iphone-13-blue-select-2021_2UUetsP.webp';
+import iphone14 from '../assets/images/imgIphone/iphone-14-finish-select-202209-6-1inch-yellow.webp';
+import iphone15 from '../assets/images/imgIphone/iphone-15-finish-select-202309-6-1inch-pink.webp';
+import iphone15plus from '../assets/images/imgIphone/iphone-15-finish-select-202309-6-1inch-pink.webp';
+import iphone15pro from '../assets/images/imgIphone/iphone-15-pro-finish-select-202309-6-1inch-naturaltitanium.webp';
+import iphone15proMax from '../assets/images/imgIphone/iphone-15-pro-max-select-202309-6-7inch-bluetitanium_Pkg9yKl.webp';
 
 export const phone = [
   {
     id: 13,
-    name: 'Iphone  14',
-    price: 850,
-    imgUrl: iphone14,
+    name: 'Apple Iphone 11',
+    price: 599,
+    imgUrl: iphone11,
   },
   {
     id: 14,
-    name: 'Iphone Pro M2',
-    price: 1450,
-    imgUrl: iphoneair23,
+    name: 'Apple Iphone 12',
+    price: 1150,
+    imgUrl: iphone12,
   },
   {
     id: 15,
-    name: 'Iphone Air M1',
+    name: 'Apple Iphone 13',
     price: 999,
-    imgUrl: '/public/Iphone/2.jpeg',
+    imgUrl: iphone13,
   },
   {
     id: 16,
-    name: 'Iphone Air 13.3 M1',
+    name: 'Apple Iphone 14',
     price: 1100,
-    imgUrl: '/public/Iphone/3.webp',
+    imgUrl: iphone14,
   },
   {
     id: 17,
-    name: 'Iphone 512GB',
+    name: 'Apple Iphone 15 plus',
     price: 1000,
-    imgUrl: '/public/Iphone/4.jpeg',
+    imgUrl: iphone15,
   },
   {
     id: 18,
-    name: 'Iphone Air M3',
+    name: 'Apple Iphone 15 plus',
     price: 1550,
-    imgUrl: '/public/Iphone/5.jpeg',
+    imgUrl: iphone15plus,
   },
   {
     id: 19,
-    name: 'Iphone Air M1',
+    name: 'Apple Iphone 15 pro',
     price: 999,
-    imgUrl: '/public/Iphone/2.jpeg',
+    imgUrl: iphone15pro,
   },
   {
     id: 20,
-    name: 'Iphone Air 13.3 M1',
+    name: 'Apple Iphone 15 pro max',
     price: 1100,
-    imgUrl: '/public/Iphone/3.webp',
-  },
-  {
-    id: 21,
-    name: 'Iphone  14',
-    price: 850,
-    imgUrl: '/public/Iphone/product_3611_0_image-1000x1000.jpg',
+    imgUrl: iphone15proMax,
   },
 ];
