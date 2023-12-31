@@ -12,18 +12,19 @@ import Whatch from './pages/Whatch';
 import AirPods from './pages/AirPods';
 import Accessories from './pages/Accessories';
 import LoginForm from './layout/LoginForm';
-import { useState } from 'react';
 import ReplyAllIcon from '@mui/icons-material/ReplyAll';
 import Catalog from './components/Catalog';
 import styled from 'styled-components';
 import CatalogTwo from './components/Catalog2';
 import Footer from './pages/Footer';
+import LoginFormBanner from './pages/LoginFormBanner';
+import { useState } from 'react';
 
 function App() {
   const navigate = useNavigate();
   const [isAuthenticated, setAuthenticated] = useState(false);
 
-  const handleLogin = (values: { email: string; password: string }) => {
+  const handleLogin = (values: unknown) => {
     console.log('Login values:', values);
     setAuthenticated(true);
     navigate('/home');
@@ -31,6 +32,10 @@ function App() {
 
   const handleLogout = () => {
     setAuthenticated(false);
+  };
+
+  const handleLoginButtonClick = () => {
+    navigate('/login-form');
   };
 
   return (
@@ -53,9 +58,24 @@ function App() {
             <Route path="/AirPods" element={<AirPods />} />
             <Route path="/Accessories" element={<Accessories />} />
             <Route path="/about" element={<About />} />
-            <Route path="/" element={<LoginForm onSubmit={handleLogin} />} />
+            <Route path="/login" element={<LoginFormBanner />} />
+            <Route
+              path="/login-form"
+              element={<LoginForm onSubmit={handleLogin} />}
+            />
           </>
         </Routes>
+        {!isAuthenticated && (
+          <div style={{ textAlign: 'center' }}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleLoginButtonClick}
+            >
+              Login Form
+            </Button>
+          </div>
+        )}
         {isAuthenticated && (
           <div>
             <Button
@@ -68,9 +88,7 @@ function App() {
           </div>
         )}
       </Container>
-      <>
-        <Footer creator={''} />
-      </>
+      <Footer creator={''} />
     </ShoppingCartProvider>
   );
 }
