@@ -15,7 +15,7 @@ const Store = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center', maxWidth: '800px', margin: 'auto' }}>
+    <div>
       <h1>Store</h1>
       <p>We are a fantastic company doing amazing things.</p>
 

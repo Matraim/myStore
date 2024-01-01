@@ -13,9 +13,7 @@ import AirPods from './pages/AirPods';
 import Accessories from './pages/Accessories';
 import LoginForm from './layout/LoginForm';
 import ReplyAllIcon from '@mui/icons-material/ReplyAll';
-import Catalog from './components/Catalog';
 import styled from 'styled-components';
-import CatalogTwo from './components/Catalog2';
 import Footer from './pages/Footer';
 import LoginFormBanner from './pages/LoginFormBanner';
 import { useState } from 'react';
@@ -42,10 +40,7 @@ function App() {
     <ShoppingCartProvider>
       <Navbar />
       <Container className="mb-4">
-        <StyleCatalog>
-          <Catalog />
-          <CatalogTwo />
-        </StyleCatalog>
+        <StyleCatalog></StyleCatalog>
 
         <Routes>
           <>

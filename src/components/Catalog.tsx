@@ -14,7 +14,13 @@ export default function Catalog() {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+      }}
+    >
       <Button
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}

@@ -5,10 +5,8 @@ import StoreItem from '../components/SotreItem';
 const IPhone = () => {
   return (
     <>
-      <h1 style={{ textAlign: 'center' }}>Iphone</h1>
-      <p style={{ textAlign: 'center' }}>
-        We are a fantastic company doing amazing Whatch.
-      </p>
+      <h1>Iphone</h1>
+      <p>We are a fantastic company doing amazing Whatch.</p>
       <Row md={2} sm={1} lg={3} className="g-3">
         {phone.map((item) => (
           <Col key={item.id}>

@@ -2,6 +2,15 @@ import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
+import IPhone from '../assets/images/imgIphone/iphone-15-pro-max-select-202309-6-7inch-bluetitanium_Pkg9yKl.webp';
+import IPhone2 from '../assets/images/imgIphone/iphone-15-pro-select-202309-6-7inch-blue_копия.webp';
+import IPhone3 from '../assets/images/imgIphone/12-Black_Rfid3OW.webp';
+import Mac from '../assets/images/imgmacbook/mbp16-spacegray-gallery1-202301_3mrg5Ao.webp';
+import Mac2 from '../assets/images/imgmacbook/mbp14-silver-gallery1-202301.webp';
+import Mac3 from '../assets/images/imgmacbook/mbp16-spacegray-gallery1-202301_3mrg5Ao.webp';
+import Ipad from '../assets/images/imgIpad/iPad-mini-WiFi-Purple.webp';
+import Whatch from '../assets/images/imgAppleWhatch/ultra-2-blue-alpine-loop3.webp';
+import Whatch2 from '../assets/images/imgAppleWhatch/watch-41-pink_DH7RKN25.webp';
 
 export default function TitlebarBelowMasonryImageList() {
   return (
@@ -25,113 +34,73 @@ export default function TitlebarBelowMasonryImageList() {
 
 const itemData = [
   {
-    img: '/public/AirPods/aw6-hang-white-1_szbdyTq.webp',
+    img: IPhone,
     title: 'Bed',
     author: 'swabdesign',
   },
   {
-    img: '/public/ipad/ipad-mini-select-wifi-space-gray-202109_fmt_whh-1200x1200 (1).jpeg',
+    img: Mac,
     title: 'Books',
     author: 'Pavel Nekoranec',
   },
   {
-    img: '/public/Iphone/3.webp',
+    img: Ipad,
     title: 'Sink',
     author: 'Charles Deluvio',
   },
   {
-    img: '/public/AirPods/190326150012817137-450x450.webp',
+    img: IPhone3,
     title: 'Kitchen',
     author: 'Christian Mackie',
   },
   {
-    img: '/public//Iphone/5.jpeg',
+    img: IPhone2,
     title: 'Blinds',
     author: 'Darren Richardson',
   },
   {
-    img: '/public/mac/Apple-MacBook-Pro-with-Retina-Display-2020-Space-Gray.png',
+    img: Mac3,
     title: 'Chairs',
     author: 'Taylor Simpson',
   },
   {
-    img: '/public/whatch/ultra-2-blue-alpine-loop.webp',
+    img: Mac2,
     title: 'Laptop',
     author: 'Ben Kolde',
   },
   {
-    img: '/public/Iphone/5.jpeg',
+    img: IPhone3,
     title: 'Doors',
     author: 'Philipp Berndt',
   },
   {
-    img: '/public/whatch/ultra-2-white-ocean-band.webp',
+    img: Whatch,
     title: 'Coffee',
     author: 'Jen P.',
   },
   {
-    img: '/public/Iphone/product_3611_0_image-1000x1000.jpg',
+    img: Mac2,
     title: 'Storage',
     author: 'Douglas Sheppard',
   },
   {
-    img: '/public/AirPods/MQD83_AV2_LZdu7LV.webp',
+    img: IPhone3,
     title: 'Candle',
     author: 'Fi Bell',
   },
   {
-    img: '/public/mac/notebook_apple_APPMNEJ3LLA_02.webp',
+    img: Mac,
     title: 'Coffee table',
     author: 'Hutomo Abrianto',
   },
   {
-    img: '/public/whatch/watch-41-stainless-gold.webp',
+    img: Whatch2,
     title: 'Bed',
     author: 'swabdesign',
   },
-  // {
-  //   img: '',
-  //   title: 'Books',
-  //   author: 'Pavel Nekoranec',
-  // },
-  // {
-  //   img: '',
-  //   title: 'Sink',
-  //   author: 'Charles Deluvio',
-  // },
-  // {
-  //   img: '',
-  //   title: 'Kitchen',
-  //   author: 'Christian Mackie',
-  // },
-  // {
-  //   img: '',
-  //   title: 'Blinds',
-  //   author: 'Darren Richardson',
-  // },
-  // {
-  //   img: '',
-  //   title: 'Chairs',
-  //   author: 'Taylor Simpson',
-  // },
-  // {
-  //   img: '',
-  //   title: 'Laptop',
-  //   author: 'Ben Kolde',
-  // },
-  // {
-  //   img: '',
-  //   title: 'Doors',
-  //   author: 'Philipp Berndt',
-  // },
-  // {
-  //   img: '',
-  //   title: 'Coffee',
-  //   author: 'Jen P.',
-  // },
-  // {
-  //   img: '',
-  //   title: 'Storage',
-  //   author: 'Douglas Sheppard',
-  // },
+  {
+    img: Whatch2,
+    title: 'Bed',
+    author: 'swabdesign',
+  },
 ];

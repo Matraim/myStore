@@ -20,10 +20,8 @@ const Watch: React.FC<WatchProps> = () => {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Apple Watch</h1>
-      <p style={{ textAlign: 'center' }}>
-        We are a fantastic company doing amazing Watch.
-      </p>
+      <h1>Apple Watch</h1>
+      <p>We are a fantastic company doing amazing Watch.</p>
       <Row md={2} sm={1} lg={3} className="g-3">
         {mac.map((item) => (
           <Col key={item.id}>
