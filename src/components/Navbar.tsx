@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { ShoppingCart } from '../components/ShoppingCart';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-
-import HomeIcon from '@mui/icons-material/Home';
+import AppleIcon from '@mui/icons-material/Apple';
 import AccountMenu from './AccountMenu';
 
 const Navbar = () => {
@@ -15,7 +14,7 @@ const Navbar = () => {
       <Container>
         <Nav className="me-auto">
           <Nav.Link to="/" as={NavLink}>
-            <HomeIcon />
+            <AppleIcon />
           </Nav.Link>
           <Nav.Link to="/store" as={NavLink}>
             Store

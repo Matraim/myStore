@@ -9,10 +9,8 @@ import ipadImage from '../assets/images/imgAppleWhatch/watchOS10-Design-Template
 const Accessories = () => {
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Apple Accessories</h1>
-      <p style={{ textAlign: 'center' }}>
-        We are a fantastic company doing amazing Accessories.
-      </p>
+      <h1>Apple Accessories</h1>
+      <p>We are a fantastic company doing amazing Accessories.</p>
 
       <div
         style={{

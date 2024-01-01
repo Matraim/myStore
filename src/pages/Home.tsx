@@ -3,10 +3,8 @@ import TitlebarBelowMasonryImageList from '../components/TitlebarBelowMasonryIma
 const Home = () => {
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Home Page</h1>
-      <p style={{ textAlign: 'center' }}>
-        Welcome to our website! you can order apple products
-      </p>
+      <h1>Home Page</h1>
+      <p>Welcome to our website! you can order apple products</p>
 
       <div
         style={{
