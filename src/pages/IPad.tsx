@@ -1,8 +1,9 @@
+import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import StoreItem from '../components/SotreItem';
-import { ipad } from '../data/itemsIpad';
+import { ipad } from '../data/itemsIpad.ts';
 
-const iPad = () => {
+const iPad: React.FC = () => {
   return (
     <>
       <h1>iPad</h1>
@@ -11,8 +12,8 @@ const iPad = () => {
         {ipad.map((item) => (
           <Col key={item.id}>
             <StoreItem
-              onItemClick={function (): void {
-                throw new Error('Function not implemented.');
+              onItemClick={(item) => {
+                console.log('Add to cart:', item);
               }}
               description={''}
               {...item}
