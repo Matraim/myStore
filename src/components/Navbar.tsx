@@ -73,7 +73,6 @@ const Navbar = () => {
         </Button>
         <AccountMenu />
       </Container>
-
       {isOpen && <ShoppingCart isOpen={isOpen} />}
     </NavbarBs>
   );

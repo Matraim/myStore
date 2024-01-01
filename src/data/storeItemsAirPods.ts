@@ -1,58 +1,45 @@
-import IPhone1 from '../assets/images/imgAppleWhatch/watchOS10-Design-Templates_2x.png';
+import AirPods1 from '../assets/images/imgAirpods/116e3a5a-62db-41ed-bd46-0b687eb81d8f-1200x1200.webp';
+import AirPods2 from '../assets/images/imgAirpods/190326150012817137-1200x1200.webp';
+import AirPods3 from '../assets/images/imgAirpods/81jkmpnhvsl._ac_sl1500_-1200x1200.webp';
+import AirPods4 from '../assets/images/imgAirpods/mqd83-1200x1200.webp';
+import AirPods5 from '../assets/images/imgAirpods/mqd83-1200x1200.webp';
+import AirPods6 from '../assets/images/imgAirpods/116e3a5a-62db-41ed-bd46-0b687eb81d8f-1200x1200.webp';
 
 export const items = [
   {
     id: 13,
-    name: 'Iphone  14',
-    price: 850,
-    imgUrl: IPhone1,
+    name: 'Наушники AirPods (2‑го поколения)',
+    price: 500,
+    imgUrl: AirPods1,
   },
-  // {
-  //   id: 14,
-  //   name: 'Iphone Pro M2',
-  //   price: 1450,
-  //   imgUrl: '/public/AirPods/APSK-HANG-LUBLAmazon.webp',
-  // },
-  // {
-  //   id: 15,
-  //   name: 'Iphone Air M1',
-  //   price: 999,
-  //   imgUrl: '/public/AirPods/aw6-hang-white-1_szbdyTq.webp',
-  // },
-  // {
-  //   id: 16,
-  //   name: 'Iphone Air 13.3 M1',
-  //   price: 1100,
-  //   imgUrl: '/public/AirPods/MQD83_AV2_LZdu7LV.webp',
-  // },
-  // {
-  //   id: 17,
-  //   name: 'Iphone 512GB',
-  //   price: 1000,
-  //   imgUrl: '/public/AirPods/aw6-hang-white-1_szbdyTq.webp',
-  // },
-  // {
-  //   id: 18,
-  //   name: 'Iphone Air M3',
-  //   price: 1550,
-  //   imgUrl: '/public/AirPods/190326150012817137-450x450.webp',
-  // },
-  // {
-  //   id: 19,
-  //   name: 'Iphone Air M1',
-  //   price: 999,
-  //   imgUrl: '/public/AirPods/MQD83_AV2_LZdu7LV.webp',
-  // },
-  // {
-  //   id: 20,
-  //   name: 'Iphone Air 13.3 M1',
-  //   price: 1100,
-  //   imgUrl: '/public/AirPods/190326150012817137-450x450.webp',
-  // },
-  // {
-  //   id: 21,
-  //   name: 'Iphone  14',
-  //   price: 850,
-  //   imgUrl: '/public/AirPods/aw6-hang-white-1_szbdyTq.webp',
-  // },
+  {
+    id: 14,
+    name: 'Наушники AirPods (3‑го поколения)',
+    price: 400,
+    imgUrl: AirPods2,
+  },
+  {
+    id: 15,
+    name: 'Наушники Apple AirPods Max Голубое Небо',
+    price: 350,
+    imgUrl: AirPods3,
+  },
+  {
+    id: 16,
+    name: 'Наушники AirPods (2‑го поколения)',
+    price: 250,
+    imgUrl: AirPods4,
+  },
+  {
+    id: 17,
+    name: 'Наушники Apple EarPods Lightning Connector',
+    price: 200,
+    imgUrl: AirPods5,
+  },
+  {
+    id: 18,
+    name: 'Наушники Apple EarPods Plug 3.5',
+    price: 50,
+    imgUrl: AirPods6,
+  },
 ];
