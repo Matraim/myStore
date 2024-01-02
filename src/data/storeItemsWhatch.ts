@@ -7,37 +7,37 @@ import MacBook6 from '../assets/images/imgmacbook/studio-display-1.webp';
 
 export const MacBook = [
   {
-    id: 33,
+    id: 23,
     name: ' MacBook Pro 16',
     price: 3200,
     imgUrl: MacBook1,
   },
   {
-    id: 34,
+    id: 24,
     name: ' MacBook Pro 14',
     price: 1990,
     imgUrl: MacBook2,
   },
   {
-    id: 35,
+    id: 25,
     name: ' MacBook Pro 13',
     price: 1270,
     imgUrl: MacBook3,
   },
   {
-    id: 36,
+    id: 26,
     name: ' MacBook Air',
     price: 1920,
     imgUrl: MacBook4,
   },
   {
-    id: 36,
+    id: 27,
     name: ' iMac',
     price: 2050,
     imgUrl: MacBook5,
   },
   {
-    id: 38,
+    id: 28,
     name: ' Studio Display',
     price: 2150,
     imgUrl: MacBook6,
