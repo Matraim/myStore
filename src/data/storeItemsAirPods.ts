@@ -7,37 +7,37 @@ import AirPods6 from '../assets/images/imgAirpods/116e3a5a-62db-41ed-bd46-0b687e
 
 export const items = [
   {
-    id: 13,
+    id: 28,
     name: 'Наушники AirPods (2‑го поколения)',
     price: 500,
     imgUrl: AirPods1,
   },
   {
-    id: 14,
+    id: 29,
     name: 'Наушники AirPods (3‑го поколения)',
     price: 400,
     imgUrl: AirPods2,
   },
   {
-    id: 15,
+    id: 30,
     name: 'Наушники Apple AirPods Max Голубое Небо',
     price: 350,
     imgUrl: AirPods3,
   },
   {
-    id: 16,
+    id: 31,
     name: 'Наушники AirPods (2‑го поколения)',
     price: 250,
     imgUrl: AirPods4,
   },
   {
-    id: 17,
+    id: 32,
     name: 'Наушники Apple EarPods Lightning Connector',
     price: 200,
     imgUrl: AirPods5,
   },
   {
-    id: 18,
+    id: 33,
     name: 'Наушники Apple EarPods Plug 3.5',
     price: 50,
     imgUrl: AirPods6,

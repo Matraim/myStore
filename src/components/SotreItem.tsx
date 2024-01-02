@@ -17,7 +17,6 @@ export interface StoreItemType {
 interface StoreItemProps extends StoreItemType {
   onItemClick: (item: StoreItemType) => void;
 }
-
 const StoreItem: React.FC<StoreItemProps> = ({
   id,
   name,

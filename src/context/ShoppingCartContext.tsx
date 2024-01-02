@@ -10,6 +10,14 @@ type CartItem = {
   quantity: number;
 };
 
+type StoreItemType = {
+  id: number;
+  name: string;
+  price: number;
+  imgUrl: string;
+  description: string;
+};
+
 type ShoppingCartContext = {
   openCart: () => void;
   closeCart: () => void;
@@ -20,6 +28,7 @@ type ShoppingCartContext = {
   cartQuantity: number;
   cartItems: CartItem[];
   isOpen: boolean;
+  addToCart: (item: StoreItemType) => void;
 };
 
 const ShoppingCartContext = createContext<ShoppingCartContext | undefined>(
@@ -31,7 +40,7 @@ export function useShoppingCart() {
   const context = useContext(ShoppingCartContext);
   if (!context) {
     throw new Error(
-      'useShoppingCart must be used within a ShoppingCartProvider'
+      'useShoppingCart должен использоваться внутри ShoppingCartProvider'
     );
   }
   return context;
@@ -42,7 +51,6 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     'shopping-cart',
     []
   );
-
   const [isOpen, setIsOpen] = useState(false);
 
   const openCart = () => setIsOpen(true);
@@ -53,47 +61,41 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   }
 
   function increaseCartQuantity(id: number) {
-    setCartItems((currItems) => {
-      if (currItems.find((item) => item.id === id) == null) {
-        return [...currItems, { id, quantity: 1 }];
-      } else {
-        return currItems.map((item) => {
-          if (item.id === id) {
-            return { ...item, quantity: item.quantity + 1 };
-          } else {
-            return item;
-          }
-        });
-      }
-    });
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
   }
 
   function decreaseCartQuantity(id: number) {
-    setCartItems((currItems) => {
-      if (currItems.find((item) => item.id === id)?.quantity === 1) {
-        return currItems.filter((item) => item.id !== id);
-      } else {
-        return currItems.map((item) => {
-          if (item.id === id) {
-            return { ...item, quantity: item.quantity - 1 };
-          } else {
-            return item;
-          }
-        });
-      }
-    });
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+    );
   }
 
   function removeFromCart(id: number) {
-    setCartItems((currItems) => {
-      return currItems.filter((item) => item.id !== id);
-    });
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   }
 
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
     0
   );
+
+  const addToCart = (item: StoreItemType) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+
+    if (existingItem) {
+      increaseCartQuantity(item.id);
+    } else {
+      setCartItems((prevItems) => [...prevItems, { id: item.id, quantity: 1 }]);
+    }
+  };
 
   return (
     <ShoppingCartContext.Provider
@@ -107,6 +109,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         cartQuantity,
         cartItems,
         isOpen,
+        addToCart,
       }}
     >
       {children}

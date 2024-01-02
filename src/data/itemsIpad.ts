@@ -7,37 +7,37 @@ import Ipad6 from '../assets/images//imgIpad/iPad-mini-WiFi-Purple.webp';
 
 export const ipad = [
   {
-    id: 7,
+    id: 9,
     name: ' iPad Pro 12.9" (2022)',
     price: 850,
     imgUrl: Ipad4,
   },
   {
-    id: 8,
+    id: 10,
     name: ' iPad Pro 11" (2022)',
     price: 1450,
     imgUrl: Ipad2,
   },
   {
-    id: 9,
+    id: 11,
     name: ' iPad Air 10.9" (2022)',
     price: 999,
     imgUrl: Ipad5,
   },
   {
-    id: 10,
+    id: 12,
     name: ' iPad 10.9" (2022)',
     price: 1100,
     imgUrl: Ipad1,
   },
   {
-    id: 11,
+    id: 13,
     name: ' iPad 10.2" (2021)',
     price: 1000,
     imgUrl: Ipad6,
   },
   {
-    id: 12,
+    id: 14,
     name: ' iPad mini 8.3" (2021)',
     price: 1550,
     imgUrl: Ipad3,
