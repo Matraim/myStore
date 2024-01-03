@@ -6,6 +6,12 @@ import { items } from '../data/storeItemsAirPods';
 
 interface ShoppingCartProps {
   isOpen: boolean;
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  imgUrl: string;
+  onItemClick: (item: unknown) => void;
 }
 
 export function ShoppingCart({ isOpen }: ShoppingCartProps) {

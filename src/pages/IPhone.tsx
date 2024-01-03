@@ -9,12 +9,12 @@ const IPhone: React.FC = () => {
 
   return (
     <>
-      <h1>iPhone</h1>
+      <h1>Apple iPhone</h1>
       <p>We are a fantastic company doing amazing Whatch.</p>
       <Row md={2} sm={1} lg={3} className="g-3">
         {phone.map((item) => (
           <Col key={item.id}>
-            <StoreItem onItemClick={addToCart} description={''} {...item} />
+            <StoreItem onItemClick={addToCart} description="" {...item} />
           </Col>
         ))}
       </Row>

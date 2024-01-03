@@ -8,16 +8,17 @@ interface FooterProps {
 
 const StyledFooter = styled.footer`
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   background-color: #333;
   color: white;
-  padding: 45px;
-  position: absolute;
+  padding: 20px;
   width: 100%;
 
   div {
     flex: 1;
-    margin: 0 10px;
+    margin: 10px 0;
+    text-align: center;
   }
 
   h3 {
@@ -41,6 +42,19 @@ const StyledFooter = styled.footer`
     &:hover {
       color: #61dafb;
     }
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-around;
+
+    div {
+      margin: 0 10px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 40px;
   }
 `;
 
@@ -74,7 +88,7 @@ const Footer: React.FC<FooterProps> = ({ creator }) => {
             <Link to="/ipad">iPad</Link>
           </li>
           <li>
-            <Link to="/Whatch">Watch</Link>
+            <Link to="/watch">Watch</Link>
           </li>
           <li>
             <Link to="/mac">Mac</Link>
@@ -87,12 +101,11 @@ const Footer: React.FC<FooterProps> = ({ creator }) => {
       <div>
         <h3>About</h3>
         <ul>
-          {' '}
-          <Link to="./About">About Team {creator}</Link>
+          <Link to="./about">About Team {creator}</Link>
         </ul>
 
         <ul>
-          <Link to="https://github.com/Matraim">My GitHub</Link>
+          <a href="https://github.com/Matraim">My GitHub</a>
         </ul>
       </div>
     </StyledFooter>
