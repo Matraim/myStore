@@ -19,6 +19,7 @@
     "@mui/icons-material": "^5.14.19",
     "@mui/material": "^5.15.0",
     "@mui/system": "^5.15.0",
+    "@types/react-router-dom": "^5.3.3",
     "bootstrap": "^5.3.2",
     "formik": "^2.4.5",
     "gh-pages": "^6.1.0",
