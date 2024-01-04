@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Box,
   Avatar,
@@ -12,12 +13,11 @@ import {
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import { NavLink } from 'react-router-dom';
-import { Nav } from 'react-bootstrap';
 
-export default function AccountMenu() {
+const AccountMenu: React.FC = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const navigate = useNavigate();
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -25,6 +25,16 @@ export default function AccountMenu() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleProfileClick = () => {
+    handleClose();
+    navigate('/profile');
+  };
+
+  const handleSaleClick = () => {
+    handleClose();
+    navigate('/sale');
   };
 
   return (
@@ -39,7 +49,12 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            <Link
+              to="/profile"
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            </Link>
           </IconButton>
         </Tooltip>
       </Box>
@@ -78,26 +93,31 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
-          <Nav.Link to="/Mac" as={NavLink}>
+        <MenuItem onClick={handleProfileClick}>
+          <Link
+            to="/profile"
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
             <Avatar /> Profile
-          </Nav.Link>
+          </Link>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Avatar /> My account
+        <MenuItem onClick={handleSaleClick}>
+          <Link to="/sale" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Avatar /> Sale
+          </Link>
         </MenuItem>
         <Divider />
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <PersonAdd fontSize="small" />
           </ListItemIcon>
-          Add another account
+          Admin
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
-          Settings
+          Message for Admin
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
@@ -108,4 +128,6 @@ export default function AccountMenu() {
       </Menu>
     </React.Fragment>
   );
-}
+};
+
+export default AccountMenu;

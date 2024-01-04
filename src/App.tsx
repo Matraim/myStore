@@ -13,7 +13,6 @@ import AirPods from './pages/AirPods';
 import Accessories from './pages/Accessories';
 import LoginForm from './layout/LoginForm';
 import ReplyAllIcon from '@mui/icons-material/ReplyAll';
-import styled from 'styled-components';
 import Footer from './pages/Footer';
 import LoginFormBanner from './pages/LoginFormBanner';
 import { useState } from 'react';
@@ -40,8 +39,6 @@ function App() {
     <ShoppingCartProvider>
       <Navbar />
       <Container className="mb-4">
-        <StyleCatalog></StyleCatalog>
-
         <Routes>
           <>
             <Route path="/home" element={<Home />} />
@@ -54,6 +51,7 @@ function App() {
             <Route path="/Accessories" element={<Accessories />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<LoginFormBanner />} />
+
             <Route
               path="/login-form"
               element={<LoginForm onSubmit={handleLogin} />}
@@ -89,13 +87,3 @@ function App() {
 }
 
 export default App;
-
-const StyleCatalog = styled.div`
-  display: flex;
-  color: black;
-  align-items: flex-end;
-  justify-content: flex-end;
-  position: fixed;
-  z-index: 999;
-  gap: 3rem;
-`;

@@ -12,8 +12,28 @@ const StyledNavbar = styled(NavbarBs)`
     background-color: #fff;
   }
 
-  .navbar-brand {
-    cursor: pointer;
+  .nav-link {
+    color: #000;
+    margin-right: 10px;
+    position: relative;
+
+    &:hover {
+      color: #337aba;
+    }
+
+    &.active {
+      color: #3772a6;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #337aba;
+      }
+    }
   }
 
   .nav-link {
