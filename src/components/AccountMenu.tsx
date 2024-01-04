@@ -12,6 +12,8 @@ import {
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import { NavLink } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -77,7 +79,9 @@ export default function AccountMenu() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar /> Profile
+          <Nav.Link to="/Mac" as={NavLink}>
+            <Avatar /> Profile
+          </Nav.Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Avatar /> My account
