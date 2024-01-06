@@ -14,7 +14,7 @@ import Accessories from './pages/Accessories';
 import LoginForm from './layout/LoginForm';
 import ReplyAllIcon from '@mui/icons-material/ReplyAll';
 import Footer from './pages/Footer';
-import LoginFormBanner from './pages/LoginFormBanner';
+
 import { useState } from 'react';
 
 function App() {
@@ -50,11 +50,10 @@ function App() {
             <Route path="/AirPods" element={<AirPods />} />
             <Route path="/Accessories" element={<Accessories />} />
             <Route path="/about" element={<About />} />
-            <Route path="/login" element={<LoginFormBanner />} />
 
             <Route
               path="/login-form"
-              element={<LoginForm onSubmit={handleLogin} />}
+              element={<LoginForm type="signin" onSubmit={handleLogin} />}
             />
           </>
         </Routes>
