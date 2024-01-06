@@ -1,166 +1,252 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
-import * as yup from 'yup';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import {
+  Button,
+  TextField,
+  Typography,
+  Container,
+  CssBaseline,
+  FormControlLabel,
+  Checkbox,
+  Box,
+} from '@mui/material';
+import { styled } from '@mui/system';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-interface SignUpFormValues {
-  email: string;
-  password: string;
-  confirmPassword: string;
-  city: string;
-  gender: string;
-  agreeTerms: boolean;
-}
-
-const SignUpSchema = yup.object({
-  email: yup.string().email('Invalid email').required('Required'),
-  password: yup.string().required('Required'),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref('password')], 'Passwords must match')
-    .required('Required'),
-  city: yup.string().required('Required'),
-  gender: yup.string().required('Required'),
-  agreeTerms: yup.boolean().oneOf([true], 'Must accept terms and conditions'),
+const validationSchema = Yup.object({
+  username: Yup.string().required('Username is required'),
+  password: Yup.string().required('Password is required'),
+  city: Yup.string().required('City is required'),
+  gmail: Yup.string()
+    .email('Invalid email address')
+    .required('Email is required'),
+  age: Yup.number()
+    .required('Age is required')
+    .positive('Age must be a positive number'),
 });
 
-const StyledSignUpForm = styled(Form)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-`;
+interface LoginFormProps {
+  type: 'signin' | 'signup';
+  onSubmit: (data: unknown) => Promise<void>;
+}
 
-const StyledLabel = styled.label`
-  margin-bottom: 8px;
-  font-weight: bold;
-`;
+const StyledForm = styled('form')({
+  width: '100%',
+  marginTop: '2rem',
+});
 
-const StyledInput = styled(Field)`
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  outline: none;
-`;
+const StyledBox = styled(Box)({
+  backgroundColor: '#f8f8f8',
+  padding: '2rem',
+  borderRadius: '12px',
+  boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.1)',
+});
 
-const StyledCheckboxContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-`;
+const StyledLabel = styled('label')({
+  marginBottom: '1rem',
+  display: 'block',
+  color: '#050505',
+  fontSize: '1.2rem',
+});
 
-const StyledCheckboxLabel = styled.label`
-  margin-left: 8px;
-`;
+const StyledInput = styled(TextField)({
+  width: '100%',
+  marginBottom: '1rem',
+});
 
-const StyledButton = styled.button`
-  width: 100%;
-  padding: 12px;
-  background-color: #4267b2;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+const StyledButton = styled(Button)({
+  width: '100%',
+  padding: '1.5rem',
+  marginTop: '1rem',
+  backgroundColor: '#0070c9',
+  color: 'white',
+  borderRadius: '12px',
+  cursor: 'pointer',
+  fontSize: '1.2rem',
+});
 
-  &:hover {
-    background-color: #405d9b;
-  }
-`;
+const ErrorMessage = styled('p')({
+  color: 'red',
+  marginTop: '1rem',
+  fontSize: '1rem',
+});
 
-const AuthForm = styled.div`
-  text-align: center;
-  margin-top: 16px;
-`;
+const ToggleLink = styled(Link)({
+  display: 'block',
+  marginTop: '1rem',
+  textAlign: 'center',
+  color: '#0070c9',
+  textDecoration: 'underline',
+  cursor: 'pointer',
+  fontSize: '1rem',
+});
 
-const SignUpLink = styled.p`
-  margin-top: 12px;
-  font-size: 14px;
-  color: #333;
-
-  span {
-    color: #4267b2;
-    cursor: pointer;
-  }
-`;
-
-const LoginForm: React.FC<{ onSubmit: (values: SignUpFormValues) => void }> = ({
-  onSubmit,
-}) => {
-  const navigate = useNavigate();
-
-  const handleSubmit = async (
-    values: SignUpFormValues,
-    actions: FormikHelpers<SignUpFormValues>
-  ) => {
-    console.log('Signing up with:', values);
-    onSubmit(values);
-    navigate('/home');
-    actions.setSubmitting(false);
-  };
-
-  const handelSignup = () => {
-    navigate('/home');
-  };
+const LoginForm: React.FC<LoginFormProps> = ({ type, onSubmit }) => {
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      password: '',
+      city: '',
+      gmail: '',
+      age: '',
+    },
+    validationSchema: validationSchema,
+    onSubmit: async (values) => {
+      try {
+        await onSubmit(values);
+        toast.success(
+          `${type === 'signin' ? 'Sign In' : 'Sign Up'} successful!`
+        );
+      } catch (error) {
+        console.error(
+          `Error during ${type === 'signin' ? 'Sign In' : 'Sign Up'}:`,
+          error
+        );
+        toast.error(
+          `Failed to ${
+            type === 'signin' ? 'Sign In' : 'Sign Up'
+          }. Please try again.`
+        );
+      }
+    },
+  });
 
   return (
-    <Formik
-      initialValues={{
-        email: '',
-        password: '',
-        confirmPassword: '',
-        city: '',
-        gender: '',
-        agreeTerms: false,
-      }}
-      validationSchema={SignUpSchema}
-      onSubmit={handleSubmit}
-    >
-      <StyledSignUpForm>
-        <StyledLabel htmlFor="email">Email:</StyledLabel>
-        <StyledInput type="text" id="email" name="email" />
-        <ErrorMessage name="email" component="div" />
-
-        <StyledLabel htmlFor="password">Password:</StyledLabel>
-        <StyledInput type="password" id="password" name="password" />
-        <ErrorMessage name="password" component="div" />
-
-        <StyledLabel htmlFor="city">City:</StyledLabel>
-        <StyledInput type="text" id="city" name="city" />
-        <ErrorMessage name="city" component="div" />
-
-        <StyledLabel htmlFor="gender">Gender:</StyledLabel>
-        <StyledInput type="text" id="gender" name="gender" />
-        <ErrorMessage name="gender" component="div" />
-
-        <StyledCheckboxContainer>
-          <Field type="checkbox" id="agreeTerms" name="agreeTerms" />
-          <StyledCheckboxLabel htmlFor="agreeTerms">
-            I agree to the terms and conditions
-          </StyledCheckboxLabel>
-        </StyledCheckboxContainer>
-
-        <StyledButton type="submit" onClick={handelSignup}>
-          Sign Up
-        </StyledButton>
-
-        <AuthForm>
-          <SignUpLink>
-            Already have an account?{' '}
-            <span onClick={() => navigate('/login')}>Login</span>
-          </SignUpLink>
-        </AuthForm>
-      </StyledSignUpForm>
-    </Formik>
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <StyledForm onSubmit={formik.handleSubmit}>
+        <StyledBox>
+          <Typography
+            component="h1"
+            variant="h5"
+            style={{
+              marginBottom: '1rem',
+              color: '#0070c9',
+              fontSize: '1.5rem',
+            }}
+          >
+            {type === 'signin' ? 'Sign In' : 'Sign Up'}
+          </Typography>
+          <StyledLabel>
+            Username
+            <StyledInput
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="Username"
+              name="username"
+              autoComplete="username"
+              autoFocus
+              value={formik.values.username}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </StyledLabel>
+          {formik.touched.username && formik.errors.username ? (
+            <ErrorMessage>{formik.errors.username}</ErrorMessage>
+          ) : null}
+          <StyledLabel>
+            Password
+            <StyledInput
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </StyledLabel>
+          {formik.touched.password && formik.errors.password ? (
+            <ErrorMessage>{formik.errors.password}</ErrorMessage>
+          ) : null}
+          <StyledLabel>
+            City
+            <StyledInput
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="city"
+              label="City"
+              name="city"
+              autoComplete="city"
+              value={formik.values.city}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </StyledLabel>
+          {formik.touched.city && formik.errors.city ? (
+            <ErrorMessage>{formik.errors.city}</ErrorMessage>
+          ) : null}
+          <StyledLabel>
+            Gmail
+            <StyledInput
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="gmail"
+              label="Gmail"
+              name="gmail"
+              autoComplete="gmail"
+              value={formik.values.gmail}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </StyledLabel>
+          {formik.touched.gmail && formik.errors.gmail ? (
+            <ErrorMessage>{formik.errors.gmail}</ErrorMessage>
+          ) : null}
+          <StyledLabel>
+            Age
+            <StyledInput
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="age"
+              label="Age"
+              name="age"
+              autoComplete="age"
+              value={formik.values.age}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </StyledLabel>
+          {formik.touched.age && formik.errors.age ? (
+            <ErrorMessage>{formik.errors.age}</ErrorMessage>
+          ) : null}
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
+          <StyledButton type="submit">
+            {type === 'signin' ? 'Sign In' : 'Sign Up'}
+          </StyledButton>
+          {type === 'signin' ? (
+            <ToggleLink to="/SignUpPage">
+              Don't have an account? Sign Up
+            </ToggleLink>
+          ) : (
+            <ToggleLink to="/SignInPage">
+              Already have an account? Sign In
+            </ToggleLink>
+          )}
+        </StyledBox>
+      </StyledForm>
+      <ToastContainer />
+    </Container>
   );
 };
 
